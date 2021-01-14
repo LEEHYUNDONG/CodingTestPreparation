@@ -6,29 +6,20 @@ using namespace std;
 
 string solution(string number, int k){
 	string answer = "";
-	vector<int> arr;
-	string tmp = "";
-	int j = 0;
-	int max = -1000000;
-	for(int i = 0;i < number.length()-k+1;i++){
-		tmp.clear();
-		for(int j = i+1;j < number.length();j++){
+	int start = 0;
 
-			tmp += number[i];
-			tmp += number[j];
-			//arr.push_back(stoi(tmp));
-			//tmp.clear();
-			cout << number[i] << " "; 
-			if(tmp.length() != number.length() - k) cout << number[j] << "";
-			else {
-				tmp.pop_back();
-				cout << endl;
+	for(int i = 0;i < number.size()-k;i++){
+		char max = number[start];
+		int mxIdx = start;	
+		for(int j = start;j <= k+i;j++){
+			if(max < number[j]){
+			       	max = number[j];
+				mxIdx = j;
 			}
 		}
+		start = mxIdx + 1;
+		answer += max;
 	}
-	
-	//max = *max_element(arr.begin(), arr.end());
-	//answer = to_string(max);
 	
 	return answer;
 }

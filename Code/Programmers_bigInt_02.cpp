@@ -20,5 +20,5 @@ string solution(string number, int k){
 
 }
 int main(){
-	cout << solution("1231234", 3) << endl;
+	cout << solution("7892389124", 4) << endl;
 }
