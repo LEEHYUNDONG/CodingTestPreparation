@@ -5,11 +5,9 @@ using namespace std;
 int fib[N+1] = {0, 1, };
 
 int fibo(int n){
-	if(n == 1 || n == 0){return fib[n];}
-	else{
-		fib[n] = fib[n-1] + fib[n-2];
-		return fibo(n-1)+fibo(n-2);
-	}
+	if(n == 1 || n == 0) return fib[n];
+	else if(fib[n] == 0) fib[n] = fibo(n-1) + fibo(n-2);
+	return fib[n]
 	
 }
 int main(){
